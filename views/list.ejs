@@ -1,0 +1,45 @@
+<%- include("header") -%>
+
+  <div class="box" id="heading">
+    <h1>
+      <%= listTitle %>
+    </h1>
+  </div>
+
+  <div class="box">
+
+    <% newListItems.map(item=> { %>
+      <form action="/delete" method="post">
+        <div class="item">
+          <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
+          <p>
+            <%= item.name %>
+          </p>
+        </div>
+        <input type="hidden" name="listName" value="<%=listTitle%>"></input>
+      </form>
+      <%})%>
+
+        <form class="item" action="/" method="post">
+          <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
+          <button type="submit" name="list" value="<%=listTitle%>">+</button>
+        </form>
+  </div>
+
+  <!-- <div class="box" id="heading">
+    <input type="text" name="newList" id="nl" placeholder="Create new list">
+    <button type="button" name="createNewList" id="try">Add</button>
+    <h1 id="text"></h1>
+    <script>
+      document.getElementById("try").addEventListener("click", function () {
+        let newListName = document.getElementById("nl");
+        const name = newListName.value;
+        const host = location.host;
+        const url = `https://${host}/${name}`;
+        console.log(url);
+        //location.assign(url);
+      });
+    </script>
+  </div> -->
+
+  <%- include("footer") -%>
