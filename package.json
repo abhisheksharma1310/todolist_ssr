@@ -4,7 +4,9 @@
   "description": "A todo list app with mongoDB",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "build": "npm i"
   },
   "author": "Abhishek Sharma",
   "license": "ISC",
